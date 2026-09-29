@@ -1,16 +1,18 @@
 # BenefitBridge Alexa+ Status
 
-Last updated: 2026-09-28 23:22 UTC
+Last updated: 2026-09-29 03:50 UTC
 
 ## Current Focus
 
 - First local vertical slice is working and production-build validated.
+- Josh approved a separate public GitHub repository with an open-source license.
 - Next focus: move the local stateful simulation onto the required MCP/AWS architecture without weakening the reliable demo path.
 
 ## Active Tasks
 
-- [ ] Josh: register for the Amazon Developer Hackathon.
-- [ ] Josh: request the per-participant $150 AWS promotional credit.
+- [x] Josh: register for the Amazon Developer Hackathon.
+- [x] Josh: request the per-participant $150 AWS promotional credit; approval/redemption remains to be confirmed.
+- [x] Josh: approve a separate public GitHub repository and open-source license.
 - [x] Define and freeze the smallest MVP conversation and eligibility workflow.
 - [x] Build the first deterministic benefits-routing engine with tests.
 - [x] Build the first Alexa+ web simulation with voice/text interaction and visual cards.

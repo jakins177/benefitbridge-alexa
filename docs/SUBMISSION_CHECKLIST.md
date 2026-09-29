@@ -4,10 +4,10 @@ Last verified against the official Devpost overview and FAQ: 2026-09-28.
 
 ## Josh/account-owner actions
 
-- [ ] Join the hackathon on Devpost.
-- [ ] Request the per-participant $150 AWS promotional credit using the form linked from the official FAQ.
-- [ ] Confirm the GitHub account/repository that will hold the submission.
-- [ ] Confirm whether the repository will be public with an open-source license or private with required reviewers.
+- [x] Join the hackathon on Devpost.
+- [x] Request the per-participant $150 AWS promotional credit using the form linked from the official FAQ; approval/redemption remains pending confirmation.
+- [x] Confirm the GitHub account/repository that will hold the submission.
+- [x] Confirm a public repository with an MIT open-source license.
 - [ ] If private, add Amazon reviewers and `testing@devpost.com` near submission time; invitations expire after seven days.
 - [ ] Submit the final Devpost entry as the team representative.
 
