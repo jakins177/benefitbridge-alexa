@@ -7,7 +7,7 @@
 - [x] Fictional DynamoDB/Bedrock/EventBridge/Lambda workflow and cleanup.
 - [x] Video prepared165.6seconds1080p, corrected captions, decode and visual checks.
 - [x] Boundaries explicit: browser-local simulator, separate private operator MCP, no actual Alexa integration, no outbound notification.
-- [ ] Public latest repository publication verification (release task).
+- [x] Reviewed latest source/assets published to separate public MIT-licensed GitHub repository; clean-clone verification tracked in release evidence.
 
 ## Owner stop-ship gates
 - [ ] Provide/review current official rules/FAQ: permitted simulation route, technical requirements, deadline, video/source/access and mini-challenge fields. Failed fetches and retracted verification claims are not evidence.

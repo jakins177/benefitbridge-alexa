@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- standalone Node CommonJS media reproduction harness */
 /** Purpose: create an honest, caption-led BenefitBridge submission review video.
  * Function: combine real local browser footage, genuine stills and text slides using installed ffmpeg.
  * Inputs: ../benefitbridge-demo-silent.mp4, ../desktop-intro.png, ../mobile-plan.png.
