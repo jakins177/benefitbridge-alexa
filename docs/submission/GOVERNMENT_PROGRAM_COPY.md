@@ -1,0 +1,19 @@
+# Plain-English program descriptions and source notes
+Official pages observed via web fetch on 2026-10-13 UTC. These are documentation suggestions for the engineering owner, not source changes. Do not treat the research date as retroactive proof of an app’s content-verification date. General information only, not legal, medical or eligibility advice; agencies decide applications.
+
+| Program | Suggested concise card copy | Important boundary | Official source / observed proof |
+|---|---|---|---|
+| Kansas Unemployment Insurance | “Temporary, partial replacement of lost wages for Kansas workers who meet state requirements.” | Losing a job alone does not establish eligibility. Avoid guaranteed approval, amount or duration. | https://www.dol.ks.gov/unemployment/overview — HTTP 200, October 13. Official overview says state-operated program, temporary and partial financial assistance for workers unemployed through no fault of their own who meet requirements. Saved research-unemployment.txt. |
+| Kansas Food Assistance (SNAP) | “Food benefits that help qualifying low-income households buy food.” | A reported income change is reason to consider agency screening, not a complete SNAP calculation. Do not invent a dollar entitlement. | https://www.dcf.ks.gov/services/ees/Pages/Food/FoodAssistance.aspx — HTTP 200, October 13. DCF identifies USDA SNAP as food benefits for qualifying low-income households and says Kansas calls it Food Assistance. |
+| KanCare Medical Assistance | “Kansas medical assistance, with different application pathways for children, families, older adults and people with disabilities.” | No coverage alone does not guarantee an adult qualifies. Do not imply Kansas universal adult coverage or recommend medical treatment. | https://www.kancare.ks.gov/apply-now — HTTP 200, October 13. Lists Elderly & Persons With Disabilities and Families & Children pathways, and official online application portal. Saved research-kancare.txt. |
+| Kansas LIEAP | “Help with part of eligible households’ home-energy costs, generally through one annual benefit.” | Official page says 2026 application period ended; next-period information will be provided when available. A thirty-day software follow-up does not discover an opening. Page also describes limited continuous-eligibility exceptions, so avoid saying every household must apply every year. | https://www.dcf.ks.gov/services/ees/Pages/EnergyAssistance.aspx — HTTP 200, October 13. Explicit ended-window notice and one-time-per-year general benefit description. |
+
+## Suggested explanatory language
+- Routing: “Based on the facts you shared, this official program is worth reviewing.” Not “You are eligible.”
+- Preparation: “These documents may help you prepare. The agency may request different or additional information.” Do not call the existing app’s generic document list an exhaustive verified requirement.
+- Seasonal follow-up: “Set a follow-up for 30 days from now to review the official page again.” Not “We will notify you when applications reopen.”
+- Trust: “Official source checked [actual content-review date]. Program details may change.” Do not imply a continuously refreshed data feed.
+- Important UI caveat: current source snapshot contains an energy next step promising to flag a new application period; engineering should replace that unsupported monitoring promise with the follow-up wording above.
+
+## Fresh source observations / link hygiene
+The obsolete attempted KanCare path /consumers/apply-for-kancare returned 404. The implemented /apply-now path returned 200. KDOL /unemployment is largely navigation; /unemployment/overview supplies the actual program description. Keep working official paths and review redirects before recording. No exact income threshold, benefit amount or application opening date is proposed here.

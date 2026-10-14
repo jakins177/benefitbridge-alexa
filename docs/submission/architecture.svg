@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870" role="img" aria-labelledby="title desc">
+<title id="title">BenefitBridge prototype architecture and evidence boundaries</title>
+<desc id="desc">The browser Alexa plus interaction simulation uses deterministic routing and, in the inspected snapshot, local storage. A separate Streamable HTTP MCP server exposes case and plan tools, calls deterministic routing, optionally uses Bedrock for language, and uses DynamoDB when configured. EventBridge schedules a follow-up thirty days later; a Lambda marks the case due. The current browser does not connect to the private operator server. No actual Alexa integration, government-window monitoring or push notification is represented.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#54667b"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#172d46}.h{font-size:29px;font-weight:700}.t{font-size:19px;font-weight:700}.s{font-size:16px}.note{font-size:15px}.box{fill:#fff;stroke:#60798f;stroke-width:2}.backend{fill:#e9f4f6;stroke:#08767e;stroke-width:2}.line{stroke:#54667b;stroke-width:2;fill:none;marker-end:url(#arrow)}.pending{stroke:#9a5a00;stroke-dasharray:8 6}</style>
+<rect width="1200" height="870" fill="#f4f7fb"/>
+<text x="40" y="48" class="h">BenefitBridge: clear next steps, explicit boundaries</text>
+<text x="40" y="77" class="s">Source architecture • October 13, 2026 snapshot • local simulator and separate private operator backend</text>
+<rect x="40" y="110" width="350" height="130" rx="14" class="box"/>
+<text x="62" y="142" class="t">Browser interaction simulation</text><text x="62" y="170" class="s">Next.js / React / TypeScript</text><text x="62" y="194" class="s">Fictional Kansas household intake</text><text x="62" y="219" class="s">Not actual Alexa+ execution</text>
+<rect x="40" y="290" width="350" height="90" rx="14" class="box"/><text x="62" y="323" class="t">Browser local storage</text><text x="62" y="352" class="s">Session-only default; saving requires opt-in</text>
+<path d="M215 240 V290" class="line"/>
+<rect x="490" y="110" width="660" height="130" rx="14" class="backend"/><text x="514" y="143" class="t">Self-hosted MCP • POST /mcp • Streamable HTTP</text><text x="514" y="172" class="s">Intake • routing • case retrieval • task state • follow-up tools</text><text x="514" y="200" class="s">Protocol and end-to-end evidence: engineering final-review gate</text>
+<text x="398" y="265" class="note">No browser-to-MCP connection in this release</text>
+<rect x="490" y="290" width="310" height="130" rx="14" class="backend"/><text x="512" y="323" class="t">Deterministic routing</text><text x="512" y="353" class="s">4 programs • reasons • agency links</text><text x="512" y="379" class="s">Not an eligibility determination</text><text x="512" y="404" class="s">Static content, not a live agency feed</text>
+<rect x="840" y="290" width="310" height="130" rx="14" class="box"/><text x="861" y="323" class="t">Optional Bedrock Converse</text><text x="861" y="353" class="s">Interpret intake / explain selected plan</text><text x="861" y="379" class="s">Deterministic fallback available</text><text x="861" y="404" class="s">Does not choose eligibility</text>
+<path d="M645 240 V290" class="line"/><path d="M995 240 V290" class="line"/>
+<rect x="40" y="470" width="350" height="125" rx="14" class="box"/><text x="62" y="503" class="t">Official agency sources</text><text x="62" y="532" class="s">Kansas DOL • DCF • KanCare</text><text x="62" y="560" class="s">Linked for user verification</text><text x="62" y="584" class="s">No application submission by this app</text>
+<path d="M490 375 H435 V532 H390" class="line"/>
+<rect x="490" y="470" width="310" height="125" rx="14" class="backend"/><text x="512" y="503" class="t">Case repository adapter</text><text x="512" y="532" class="s">DynamoDB when configured</text><text x="512" y="560" class="s">In-memory local fallback</text><text x="512" y="584" class="s">Current AWS proof pending</text>
+<path d="M820 240 V448 H645 V470" class="line"/>
+<rect x="840" y="470" width="310" height="125" rx="14" class="backend"/><text x="861" y="503" class="t">EventBridge Scheduler</text><text x="861" y="532" class="s">One-time follow-up in 30 days</text><text x="861" y="560" class="s">Configured adapter / local fallback</text><text x="861" y="584" class="s">No window monitoring or push</text>
+<path d="M1120 240 V470" class="line"/>
+<rect x="840" y="650" width="310" height="95" rx="14" class="backend"/><text x="861" y="683" class="t">Follow-up Lambda handler</text><text x="861" y="716" class="s">Set saved case reminderDue = true</text><path d="M995 595 V650" class="line"/><path d="M840 697 H645 V595" class="line"/>
+<rect x="40" y="650" width="705" height="95" rx="14" fill="#fff8e8" stroke="#9a5a00" stroke-width="2"/><text x="62" y="681" class="t">Evidence discipline</text><text x="62" y="710" class="s">Local refresh ≠ DynamoDB proof. Due flag ≠ delivered notification.</text><text x="62" y="733" class="s">Source capability ≠ fresh deployment, certification or production readiness.</text>
+<text x="40" y="798" class="s">Solid arrows: implemented source-level relationships. Dashed arrow: unresolved integration evidence.</text><text x="40" y="827" class="s">Fictional demo • no medical/legal eligibility advice • government agencies decide applications</text>
+</svg>

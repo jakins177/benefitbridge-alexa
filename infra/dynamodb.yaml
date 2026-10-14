@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: BenefitBridge anonymous case-state persistence.
+
+Parameters:
+  TableName:
+    Type: String
+    Default: BenefitBridgeCases
+    Description: DynamoDB table used by the BenefitBridge MCP server.
+
+Resources:
+  CasesTable:
+    Type: AWS::DynamoDB::Table
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      TableName: !Ref TableName
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      SSESpecification:
+        SSEEnabled: true
+      Tags:
+        - Key: Project
+          Value: BenefitBridge
+        - Key: Environment
+          Value: Hackathon
+        - Key: ManagedBy
+          Value: CloudFormation
+
+Outputs:
+  CasesTableName:
+    Value: !Ref CasesTable
+  CasesTableArn:
+    Value: !GetAtt CasesTable.Arn

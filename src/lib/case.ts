@@ -1,12 +1,13 @@
 import type { CaseState, HouseholdProfile, IntakeStep } from "./types";
+import { normalizeAnswer } from "./intake";
 import { evaluatePrograms } from "./programs";
 
-export const STORAGE_KEY = "benefitbridge-demo-case-v1";
+export const STORAGE_KEY = "benefitbridge-demo-case-v2";
 
 export function createCase(): CaseState {
   console.info("[BenefitBridge][case] Creating a new demo case");
   return {
-    id: `BB-${Date.now().toString(36).toUpperCase()}`,
+    id: `BB-${crypto.randomUUID()}`,
     step: "crisis",
     profile: { state: "KS", lostJob: false },
     recommendations: [],
@@ -19,16 +20,16 @@ export function createCase(): CaseState {
 export function applyAnswer(current: CaseState, answer: string): CaseState {
   console.info("[BenefitBridge][case] Applying intake answer", {
     caseId: current.id,
-    step: current.step,
-    answer
+    step: current.step
   });
 
+  answer = normalizeAnswer(current.step, answer);
   const profile: HouseholdProfile = { ...current.profile };
   let nextStep: IntakeStep = current.step;
 
   switch (current.step) {
     case "crisis":
-      profile.lostJob = true;
+      profile.lostJob = answer === "lost-job";
       nextStep = "household";
       break;
     case "household":
@@ -81,7 +82,7 @@ export function promptFor(step: IntakeStep): string {
 
 export function choicesFor(step: IntakeStep): Array<{ label: string; value: string }> {
   const choices: Partial<Record<IntakeStep, Array<{ label: string; value: string }>>> = {
-    crisis: [{ label: "I lost my job yesterday", value: "lost-job" }],
+    crisis: [{ label: "I lost my job yesterday", value: "lost-job" }, { label: "My income decreased", value: "income-loss" }],
     household: [1, 2, 3, 4, 5].map((value) => ({ label: String(value), value: String(value) })),
     children: [{ label: "Yes", value: "yes" }, { label: "No", value: "no" }],
     income: [

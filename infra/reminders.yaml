@@ -1,0 +1,119 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: BenefitBridge EventBridge Scheduler target and reminder Lambda.
+
+Parameters:
+  CasesTableName:
+    Type: String
+    Default: BenefitBridgeCases
+
+Resources:
+  ReminderFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: UpdateBenefitBridgeCase
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:UpdateItem
+                Resource: !Sub arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${CasesTableName}
+
+  ReminderFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: benefitbridge-reminder-handler
+      Description: Marks a BenefitBridge case due for its scheduled program-window follow-up.
+      Runtime: nodejs22.x
+      Handler: index.handler
+      Role: !GetAtt ReminderFunctionRole.Arn
+      Timeout: 10
+      MemorySize: 128
+      Environment:
+        Variables:
+          CASES_TABLE: !Ref CasesTableName
+      Code:
+        ZipFile: |
+          const { DynamoDBClient, UpdateItemCommand } = require("@aws-sdk/client-dynamodb");
+          const client = new DynamoDBClient({});
+          exports.handler = async (event) => {
+            console.info("[BenefitBridge][reminder-lambda] Invocation started");
+            const caseId = event && event.caseId;
+            if (!caseId || typeof caseId !== "string") {
+              const error = new Error("A string caseId is required.");
+              console.error("[BenefitBridge][reminder-lambda] Invalid event", { message: error.message, stack: error.stack });
+              throw error;
+            }
+            if (!event.scheduledAt || Number.isNaN(Date.parse(event.scheduledAt))) throw new Error("A valid scheduledAt is required.");
+            try {
+              await client.send(new UpdateItemCommand({
+                TableName: process.env.CASES_TABLE,
+                Key: { id: { S: caseId } },
+                UpdateExpression: "SET reminderDue = :due, updatedAt = :updatedAt",
+                ConditionExpression: "attribute_exists(id) AND reminderEnabled = :enabled AND reminderScheduledAt = :scheduledAt",
+                ExpressionAttributeValues: {
+                  ":due": { BOOL: true },
+                  ":scheduledAt": { S: event.scheduledAt },
+                  ":enabled": { BOOL: true },
+                  ":updatedAt": { S: new Date().toISOString() }
+                }
+              }));
+              console.info("[BenefitBridge][reminder-lambda] Case marked due", { caseId });
+              return { caseId, reminderDue: true };
+            } catch (error) {
+              if (error.name === "ConditionalCheckFailedException") {
+                console.info("[BenefitBridge][reminder-lambda] Stale or cancelled follow-up ignored");
+                return { ignored: true };
+              }
+              console.error("[BenefitBridge][reminder-lambda] Update failed", {
+                caseId,
+                message: error instanceof Error ? error.message : String(error),
+                stack: error instanceof Error ? error.stack : undefined
+              });
+              throw error;
+            }
+          };
+
+  SchedulerGroup:
+    Type: AWS::Scheduler::ScheduleGroup
+    Properties:
+      Name: benefitbridge
+      Tags:
+        - Key: Project
+          Value: BenefitBridge
+
+  SchedulerExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: scheduler.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: InvokeBenefitBridgeReminder
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt ReminderFunction.Arn
+
+Outputs:
+  ReminderTargetArn:
+    Value: !GetAtt ReminderFunction.Arn
+  SchedulerRoleArn:
+    Value: !GetAtt SchedulerExecutionRole.Arn
+  SchedulerGroupName:
+    Value: !Ref SchedulerGroup

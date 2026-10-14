@@ -14,11 +14,11 @@ Last verified against the official Devpost overview and FAQ: 2026-09-28.
 ## Product requirements
 
 - [x] Choose Alexa+ as the primary track.
-- [ ] Implement a self-hosted MCP server using specification 2025-11-25 or later and Streamable HTTP, or clearly use the allowed simulated-experience path.
+- [x] Implement a self-hosted MCP server using specification 2025-11-25 or later and Streamable HTTP, while retaining the allowed simulated-experience path.
 - [x] Include the simulation source code in the repository.
 - [ ] Demonstrate the working experience in a video under three minutes.
 - [ ] Ensure the repository contains all source, assets, setup instructions, and required technology calls/configuration.
-- [ ] Add documented AWS integration for the AWS Builder mini challenge.
+- [x] Add documented AWS integration for the AWS Builder mini challenge.
 - [ ] Supply product feedback for every Amazon/AWS tool, API, or SDK used.
 - [ ] State what was built during the hackathon window.
 

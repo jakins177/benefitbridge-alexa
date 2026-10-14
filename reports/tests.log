@@ -1,0 +1,437 @@
+
+> benefitbridge-alexa@0.1.0 test
+> vitest run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.2 [39m[90m/home/jakins1777/.openclaw/workspace/projects/benefitbridge-alexa[39m
+
+[90mstdout[2m | src/lib/intake.test.ts[2m > [22m[2mstrict intake[2m > [22m[2mdoes not equate income reduction with job loss
+[22m[39m[BenefitBridge][case] Creating a new demo case
+[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-ae3472ad-6090-414a-8764-b56ffba65265'[39m, step: [32m'crisis'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-ae3472ad-6090-414a-8764-b56ffba65265'[39m,
+  nextStep: [32m'household'[39m
+}
+
+[90mstdout[2m | src/lib/intake.test.ts[2m > [22m[2mstrict intake[2m > [22m[2muses unpredictable case identifiers
+[22m[39m[BenefitBridge][case] Creating a new demo case
+[BenefitBridge][case] Creating a new demo case
+
+ [32m✓[39m src/lib/intake.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+[90mstdout[2m | src/mcp/server.test.ts
+[22m[39m[BenefitBridge][repository] Default repository selected { mode: [32m'memory'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts
+[22m[39m[BenefitBridge][reminders] Default scheduler selected { mode: [32m'memory'[39m }
+
+[90mstdout[2m | src/app/mcp/route.test.ts
+[22m[39m[BenefitBridge][repository] Default repository selected { mode: [32m'memory'[39m }
+
+[90mstdout[2m | src/app/mcp/route.test.ts
+[22m[39m[BenefitBridge][reminders] Default scheduler selected { mode: [32m'memory'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts
+[22m[39m[BenefitBridge][conversation] Default assistant selected { mode: [32m'deterministic'[39m }
+
+[90mstdout[2m | src/app/mcp/route.test.ts
+[22m[39m[BenefitBridge][conversation] Default assistant selected { mode: [32m'deterministic'[39m }
+
+[90mstdout[2m | src/reminders/handler.test.ts[2m > [22m[2mconditions due delivery on the exact current scheduled timestamp
+[22m[39m[BenefitBridge][reminder-lambda] Invocation started
+
+[90mstdout[2m | src/reminders/handler.test.ts[2m > [22m[2mconditions due delivery on the exact current scheduled timestamp
+[22m[39m[BenefitBridge][reminder-lambda] Case marked due { caseId: [32m'fictional'[39m }
+
+ [32m✓[39m src/reminders/handler.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 10[2mms[22m[39m
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mpublishes the complete tool surface
+[22m[39m[BenefitBridge][mcp-test] Connecting in-memory client
+[BenefitBridge][mcp] Creating per-request MCP server
+[BenefitBridge][mcp] Tool registration completed { toolCount: [33m9[39m, persistence: [32m'memory'[39m }
+
+[90mstdout[2m | src/app/mcp/route.test.ts[2m > [22m[2msupports authenticated MCP discovery without public access
+[22m[39m[BenefitBridge][mcp-http] Request started { method: [32m'POST'[39m, protocolVersion: [32m'2025-11-25'[39m }
+
+[90mstdout[2m | src/app/mcp/route.test.ts[2m > [22m[2msupports authenticated MCP discovery without public access
+[22m[39m[BenefitBridge][mcp] Creating per-request MCP server
+[BenefitBridge][mcp] Tool registration completed { toolCount: [33m9[39m, persistence: [32m'memory'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mpublishes the complete tool surface
+[22m[39m[BenefitBridge][mcp-test] Connection closed
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp-test] Connecting in-memory client
+[BenefitBridge][mcp] Creating per-request MCP server
+[BenefitBridge][mcp] Tool registration completed { toolCount: [33m9[39m, persistence: [32m'memory'[39m }
+
+[90mstdout[2m | src/app/mcp/route.test.ts[2m > [22m[2msupports authenticated MCP discovery without public access
+[22m[39m[BenefitBridge][mcp-http] Request completed { method: [32m'POST'[39m, status: [33m200[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Creating a new demo case
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Case started {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  persistence: [32m'memory'[39m
+}
+
+ [32m✓[39m src/app/mcp/route.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 118[2mms[22m[39m
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, step: [32m'crisis'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'household'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'household'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Applying intake answer {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  step: [32m'household'[39m
+}
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'children'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'children'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, step: [32m'children'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'income'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'income'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, step: [32m'income'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'coverage'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'coverage'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, step: [32m'coverage'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'energy'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'energy'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, step: [32m'energy'[39m }
+[BenefitBridge][eligibility] Evaluation started { state: [32m'KS'[39m, programCount: [33m4[39m }
+[BenefitBridge][eligibility] Evaluation completed {
+  recommendations: [
+    { id: [32m'ks-unemployment'[39m, status: [32m'act-now'[39m },
+    { id: [32m'ks-snap'[39m, status: [32m'screen'[39m },
+    { id: [32m'kancare'[39m, status: [32m'screen'[39m },
+    { id: [32m'ks-lieap'[39m, status: [32m'monitor'[39m }
+  ]
+}
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'complete'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  nextStep: [32m'complete'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case-action] Setting task status {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  taskId: [32m'ks-unemployment'[39m,
+  completed: [33mtrue[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][case-action] Setting reminder status { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, enabled: [33mtrue[39m }
+[BenefitBridge][reminders] Memory reminder scheduled {
+  caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m,
+  scheduledAt: [32m'2026-10-31T04:00:00.000Z'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][conversation] Interpretation completed { step: [32m'household'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-747c827a-3932-49a9-992f-4f5eca63acff'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mexecutes the canonical intake and progress workflow
+[22m[39m[BenefitBridge][mcp-test] Connection closed
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][mcp-test] Connecting in-memory client
+[BenefitBridge][mcp] Creating per-request MCP server
+[BenefitBridge][mcp] Tool registration completed { toolCount: [33m9[39m, persistence: [32m'memory'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][case] Creating a new demo case
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][mcp] Case started {
+  caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m,
+  persistence: [32m'memory'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m, step: [32m'crisis'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m,
+  nextStep: [32m'household'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m,
+  nextStep: [32m'household'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][case] Applying intake answer {
+  caseId: [32m'BB-6999bbf7-292a-454a-a17a-7bada7469f3b'[39m,
+  step: [32m'household'[39m
+}
+
+[90mstderr[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][mcp] Apply intake answer failed {
+  detail: [32m'Enter one household total from 1 to 20, including yourself.'[39m,
+  stack: [32m'Error: Enter one household total from 1 to 20, including yourself.\n'[39m +
+    [32m'    at normalizeAnswer (/home/jakins1777/.openclaw/workspace/projects/benefitbridge-alexa/src/lib/intake.ts:16:123)\n'[39m +
+    [32m'    at applyAnswer (/home/jakins1777/.openclaw/workspace/projects/benefitbridge-alexa/src/lib/case.ts:26:12)\n'[39m +
+    [32m'    at /home/jakins1777/.openclaw/workspace/projects/benefitbridge-alexa/src/mcp/server.ts:95:25\n'[39m +
+    [32m'    at processTicksAndRejections (node:internal/process/task_queues:104:5)'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mreturns a tool error for an invalid step-specific answer
+[22m[39m[BenefitBridge][mcp-test] Connection closed
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][mcp-test] Connecting in-memory client
+[BenefitBridge][mcp] Creating per-request MCP server
+[BenefitBridge][mcp] Tool registration completed { toolCount: [33m9[39m, persistence: [32m'memory'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][case] Creating a new demo case
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][mcp] Case started {
+  caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m,
+  persistence: [32m'memory'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][case] Applying intake answer { caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m, step: [32m'crisis'[39m }
+[BenefitBridge][case] Intake answer applied {
+  caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m,
+  nextStep: [32m'household'[39m
+}
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m }
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][mcp] Intake answer applied {
+  caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m,
+  nextStep: [32m'household'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-97634942-3cff-4810-be24-e0164d7dc5e4'[39m, found: [33mtrue[39m }
+
+[90mstderr[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][mcp] Apply intake answer failed {
+  detail: [32m'Case changed. Resume before retrying.'[39m,
+  stack: [32m'Error: Case changed. Resume before retrying.\n'[39m +
+    [32m'    at /home/jakins1777/.openclaw/workspace/projects/benefitbridge-alexa/src/mcp/server.ts:94:97\n'[39m +
+    [32m'    at processTicksAndRejections (node:internal/process/task_queues:104:5)'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'not-a-case'[39m, found: [33mfalse[39m }
+
+[90mstderr[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][mcp] Apply intake answer failed {
+  detail: [32m'Case not found. Start a new demo case.'[39m,
+  stack: [32m'Error: Case not found. Start a new demo case.\n'[39m +
+    [32m'    at /home/jakins1777/.openclaw/workspace/projects/benefitbridge-alexa/src/mcp/server.ts:93:31\n'[39m +
+    [32m'    at processTicksAndRejections (node:internal/process/task_queues:104:5)'[39m
+}
+
+[90mstdout[2m | src/mcp/server.test.ts[2m > [22m[2mBenefitBridge MCP server[2m > [22m[2mrejects forged and stale intake records
+[22m[39m[BenefitBridge][mcp-test] Connection closed
+
+ [32m✓[39m src/mcp/server.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 236[2mms[22m[39m
+[90mstdout[2m | src/lib/programs.test.ts[2m > [22m[2mevaluatePrograms[2m > [22m[2mprioritizes unemployment after a job loss
+[22m[39m[BenefitBridge][eligibility] Evaluation started { state: [32m'KS'[39m, programCount: [33m4[39m }
+[BenefitBridge][eligibility] Evaluation completed {
+  recommendations: [
+    { id: [32m'ks-unemployment'[39m, status: [32m'act-now'[39m },
+    { id: [32m'ks-snap'[39m, status: [32m'screen'[39m },
+    { id: [32m'kancare'[39m, status: [32m'screen'[39m },
+    { id: [32m'ks-lieap'[39m, status: [32m'monitor'[39m }
+  ]
+}
+
+[90mstdout[2m | src/lib/programs.test.ts[2m > [22m[2mevaluatePrograms[2m > [22m[2mnever presents closed LIEAP as currently open
+[22m[39m[BenefitBridge][eligibility] Evaluation started { state: [32m'KS'[39m, programCount: [33m4[39m }
+[BenefitBridge][eligibility] Evaluation completed {
+  recommendations: [
+    { id: [32m'ks-unemployment'[39m, status: [32m'act-now'[39m },
+    { id: [32m'ks-snap'[39m, status: [32m'screen'[39m },
+    { id: [32m'kancare'[39m, status: [32m'screen'[39m },
+    { id: [32m'ks-lieap'[39m, status: [32m'monitor'[39m }
+  ]
+}
+
+[90mstdout[2m | src/lib/programs.test.ts[2m > [22m[2mevaluatePrograms[2m > [22m[2mroutes uninsured households to a KanCare screening
+[22m[39m[BenefitBridge][eligibility] Evaluation started { state: [32m'KS'[39m, programCount: [33m4[39m }
+[BenefitBridge][eligibility] Evaluation completed {
+  recommendations: [
+    { id: [32m'ks-unemployment'[39m, status: [32m'act-now'[39m },
+    { id: [32m'ks-snap'[39m, status: [32m'screen'[39m },
+    { id: [32m'kancare'[39m, status: [32m'screen'[39m },
+    { id: [32m'ks-lieap'[39m, status: [32m'monitor'[39m }
+  ]
+}
+
+ [32m✓[39m src/lib/programs.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+[90mstdout[2m | src/ai/conversation-assistant.test.ts
+[22m[39m[BenefitBridge][conversation] Default assistant selected { mode: [32m'deterministic'[39m }
+
+[90mstdout[2m | src/ai/conversation-assistant.test.ts[2m > [22m[2mDeterministicConversationAssistant[2m > [22m[2mnormalizes natural household, income, and negative answers
+[22m[39m[BenefitBridge][conversation] Interpretation completed { step: [32m'household'[39m }
+
+[90mstdout[2m | src/ai/conversation-assistant.test.ts[2m > [22m[2mDeterministicConversationAssistant[2m > [22m[2mnormalizes natural household, income, and negative answers
+[22m[39m[BenefitBridge][conversation] Interpretation completed { step: [32m'income'[39m }
+
+[90mstdout[2m | src/ai/conversation-assistant.test.ts[2m > [22m[2mDeterministicConversationAssistant[2m > [22m[2mnormalizes natural household, income, and negative answers
+[22m[39m[BenefitBridge][conversation] Interpretation completed { step: [32m'coverage'[39m }
+
+[90mstdout[2m | src/ai/conversation-assistant.test.ts[2m > [22m[2mDeterministicConversationAssistant[2m > [22m[2mexplains only programs already selected by deterministic rules
+[22m[39m[BenefitBridge][eligibility] Evaluation started { state: [32m'KS'[39m, programCount: [33m4[39m }
+[BenefitBridge][eligibility] Evaluation completed {
+  recommendations: [
+    { id: [32m'ks-unemployment'[39m, status: [32m'act-now'[39m },
+    { id: [32m'ks-snap'[39m, status: [32m'screen'[39m },
+    { id: [32m'kancare'[39m, status: [32m'screen'[39m },
+    { id: [32m'ks-lieap'[39m, status: [32m'monitor'[39m }
+  ]
+}
+
+ [32m✓[39m src/ai/conversation-assistant.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+[90mstdout[2m | src/persistence/case-repository.test.ts
+[22m[39m[BenefitBridge][repository] Default repository selected { mode: [32m'memory'[39m }
+
+[90mstdout[2m | src/persistence/case-repository.test.ts[2m > [22m[2mMemoryCaseRepository[2m > [22m[2mreturns null for an unknown case
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-MISSING'[39m, found: [33mfalse[39m }
+
+[90mstdout[2m | src/persistence/case-repository.test.ts[2m > [22m[2mMemoryCaseRepository[2m > [22m[2msaves defensive copies and replaces the current record
+[22m[39m[BenefitBridge][case] Creating a new demo case
+[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-af95d39b-4da3-4d00-a1eb-734162c7840e'[39m }
+
+[90mstdout[2m | src/persistence/case-repository.test.ts[2m > [22m[2mMemoryCaseRepository[2m > [22m[2msaves defensive copies and replaces the current record
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-af95d39b-4da3-4d00-a1eb-734162c7840e'[39m, found: [33mtrue[39m }
+
+[90mstdout[2m | src/persistence/case-repository.test.ts[2m > [22m[2mMemoryCaseRepository[2m > [22m[2msaves defensive copies and replaces the current record
+[22m[39m[BenefitBridge][repository] Memory save completed { caseId: [32m'BB-af95d39b-4da3-4d00-a1eb-734162c7840e'[39m }
+
+[90mstdout[2m | src/persistence/case-repository.test.ts[2m > [22m[2mMemoryCaseRepository[2m > [22m[2msaves defensive copies and replaces the current record
+[22m[39m[BenefitBridge][repository] Memory read completed { caseId: [32m'BB-af95d39b-4da3-4d00-a1eb-734162c7840e'[39m, found: [33mtrue[39m }
+
+ [32m✓[39m src/persistence/case-repository.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+[90mstdout[2m | src/reminders/reminder-scheduler.test.ts
+[22m[39m[BenefitBridge][reminders] Default scheduler selected { mode: [32m'memory'[39m }
+
+[90mstdout[2m | src/reminders/reminder-scheduler.test.ts[2m > [22m[2mMemoryReminderScheduler[2m > [22m[2mschedules a follow-up check 30 days ahead
+[22m[39m[BenefitBridge][reminders] Memory reminder scheduled { caseId: [32m'BB-TEST'[39m, scheduledAt: [32m'2026-10-31T04:00:00.000Z'[39m }
+
+[90mstdout[2m | src/reminders/reminder-scheduler.test.ts[2m > [22m[2mMemoryReminderScheduler[2m > [22m[2mschedules a follow-up check 30 days ahead
+[22m[39m[BenefitBridge][reminders] Memory reminder cancelled { caseId: [32m'BB-TEST'[39m, deleted: [33mtrue[39m }
+
+ [32m✓[39m src/reminders/reminder-scheduler.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 8[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[32m31 passed[39m[22m[90m (31)[39m
+[2m   Start at [22m 23:38:39
+[2m   Duration [22m 1.65s[2m (import 52%, transform 28%, tests 17%, worker 2%)[22m
+
+[2m    Isolate [22m [33m8 workers spawned[39m[2m · ~251ms startup each (spawn + environment, per file)[22m
+[2m            [22m [2mat least ~419ms faster with [22m[33misolate: false[39m[2m — reuses workers across files instead of one per file[22m

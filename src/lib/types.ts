@@ -23,6 +23,7 @@ export interface ProgramRecommendation {
   id: string;
   name: string;
   shortName: string;
+  description: string;
   status: ProgramStatus;
   statusLabel: string;
   reason: string;
@@ -40,5 +41,7 @@ export interface CaseState {
   recommendations: ProgramRecommendation[];
   completedTasks: string[];
   reminderEnabled: boolean;
+  reminderScheduledAt?: string;
+  reminderDue?: boolean;
   updatedAt: string;
 }

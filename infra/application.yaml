@@ -1,0 +1,133 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Public BenefitBridge Next.js and MCP application on AWS Lambda.
+
+Parameters:
+  ImageUri:
+    Type: String
+  McpOperatorToken:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+    Description: Private single-operator demo bearer token; never distribute to browsers.
+  CasesTableName:
+    Type: String
+    Default: BenefitBridgeCases
+  SchedulerGroupName:
+    Type: String
+    Default: benefitbridge
+  ReminderTargetArn:
+    Type: String
+  SchedulerRoleArn:
+    Type: String
+  BedrockModelId:
+    Type: String
+    Default: amazon.nova-micro-v1:0
+
+Resources:
+  ApplicationRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: BenefitBridgeApplicationAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: CasePersistence
+                Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                  - dynamodb:PutItem
+                Resource: !Sub arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${CasesTableName}
+              - Sid: ManageCaseSchedules
+                Effect: Allow
+                Action:
+                  - scheduler:CreateSchedule
+                  - scheduler:UpdateSchedule
+                  - scheduler:DeleteSchedule
+                Resource: !Sub arn:${AWS::Partition}:scheduler:${AWS::Region}:${AWS::AccountId}:schedule/${SchedulerGroupName}/benefitbridge-*
+              - Sid: PassSchedulerRole
+                Effect: Allow
+                Action: iam:PassRole
+                Resource: !Ref SchedulerRoleArn
+                Condition:
+                  StringEquals:
+                    iam:PassedToService: scheduler.amazonaws.com
+              - Sid: InvokeBedrock
+                Effect: Allow
+                Action: bedrock:InvokeModel
+                Resource: !Sub arn:${AWS::Partition}:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}
+
+  ApplicationFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: benefitbridge-application
+      Description: BenefitBridge review interface and Streamable HTTP MCP endpoint.
+      PackageType: Image
+      Code:
+        ImageUri: !Ref ImageUri
+      Role: !GetAtt ApplicationRole.Arn
+      Architectures:
+        - x86_64
+      MemorySize: 1024
+      Timeout: 30
+      Environment:
+        Variables:
+          BENEFITBRIDGE_MCP_TOKEN: !Ref McpOperatorToken
+          BENEFITBRIDGE_CASES_TABLE: !Ref CasesTableName
+          BENEFITBRIDGE_SCHEDULE_GROUP: !Ref SchedulerGroupName
+          BENEFITBRIDGE_REMINDER_TARGET_ARN: !Ref ReminderTargetArn
+          BENEFITBRIDGE_SCHEDULER_ROLE_ARN: !Ref SchedulerRoleArn
+          BENEFITBRIDGE_BEDROCK_MODEL_ID: !Ref BedrockModelId
+
+  ApplicationUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt ApplicationFunction.Arn
+      AuthType: NONE
+      InvokeMode: RESPONSE_STREAM
+      Cors:
+        AllowOrigins:
+          - "*"
+        AllowMethods:
+          - GET
+          - POST
+          - DELETE
+        AllowHeaders:
+          - content-type
+          - accept
+          - mcp-protocol-version
+          - mcp-session-id
+        MaxAge: 86400
+
+  PublicUrlPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApplicationFunction
+      Action: lambda:InvokeFunctionUrl
+      Principal: "*"
+      FunctionUrlAuthType: NONE
+
+  PublicInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApplicationFunction
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
+
+Outputs:
+  ReviewUrl:
+    Value: !GetAtt ApplicationUrl.FunctionUrl
+  McpUrl:
+    Value: !Sub ${ApplicationUrl.FunctionUrl}mcp
+  FunctionName:
+    Value: !Ref ApplicationFunction
